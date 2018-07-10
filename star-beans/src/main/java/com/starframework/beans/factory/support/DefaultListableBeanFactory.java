@@ -1,9 +1,12 @@
 package com.starframework.beans.factory.support;
 
 import com.starframework.beans.BeansException;
+import com.starframework.beans.extend.entity.BeanProperty;
 import com.starframework.beans.factory.BeanFactory;
 
+import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -15,11 +18,29 @@ public class DefaultListableBeanFactory implements BeanFactory {
 
 
     /**
-     * 装载bean名称与bean实例
+     * 装载bean名称与bean的class
      */
-    private final Map<String, Object> beanMap = new ConcurrentHashMap<String, Object>(256);
+    private final Map<String, Class<?>> beanMap = new ConcurrentHashMap<>(256);
 
+    /**
+     * 装载bean名称与其对应的property
+     */
+    private final Map<String, List<BeanProperty>> beanAndProperty = new ConcurrentHashMap<>(128);
 
+    protected void addFactory(String id, Class<?> bean){
+        beanMap.putIfAbsent(id, bean);
+    }
+
+    protected void addProperty(String id, List<BeanProperty> beanProperties){
+        beanAndProperty.putIfAbsent(id, beanProperties);
+    }
+
+    /**
+     * 初始化bean实例
+     */
+    protected void initBean(){
+
+    }
 
     public Object getBean(String beanName) throws BeansException {
         return null;

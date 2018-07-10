@@ -14,6 +14,6 @@ public class ClassPathApplicationContextTest {
 
     @Test
     public void run(){
-        ApplicationContext context = new ClassPathXmlApplicationContext("D:\\Project\\IdeaProject\\star-framework\\star-context\\src\\test\\resources\\ClassPathXmlApplicationContext.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("D:\\Life\\GitRepo\\Spring\\star-framework\\star-context\\src\\test\\resources\\ClassPathXmlApplicationContext.xml");
     }
 }
