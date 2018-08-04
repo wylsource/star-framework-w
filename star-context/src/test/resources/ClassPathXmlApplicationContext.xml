@@ -2,12 +2,12 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
         "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 <beans>
-    <bean id="testBean" class="com.starframework.context.TestBean">
+    <bean id="testBean" class="com.starframework.context.TestBean" scope="singleton">
         <property name="name" value="zhangsan"></property>
         <property name="password" value="123456"></property>
     </bean>
 
-    <bean id="testUseBean" class="com.starframework.context.TestUseBean">
+    <bean id="testUseBean" class="com.starframework.context.TestUseBean" scope="prototype">
         <property name="testBean" ref="testBean"></property>
     </bean>
 </beans>
